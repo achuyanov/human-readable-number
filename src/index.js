@@ -1,6 +1,6 @@
 module.exports = function toReadable(num) {
-    let ret = '';
-    let words = {
+    let ret = "";
+    const words = {
         0: "zero",
         1: "one",
         2: "two",
@@ -34,25 +34,23 @@ module.exports = function toReadable(num) {
 
     if (words[num]) return words[num];
 
-    let str = String(num);
+    const str = String(num);
 
-    let hundreds = (str.length == 3);
+    const hundreds = (str.length === 3);
 
     if (hundreds) {
-        ret = words[str[0]] + ' hundred';
+        ret = words[str[0]] + " hundred";
         str = str.slice(1);
     }
 
     if (str > 19) {
-        if (hundreds) ret += ' ';
-        ret += words[str[0] + '0'];
-        if (str[1] > 0) ret += ' ' + words[str[1]];
+        if (hundreds) ret += " ";
+        ret += words[str[0] + "0"];
+        if (str[1] > 0) ret += " " + words[str[1]];
 
     } else if (str > 0) {
-        ret = ret + ' ' + words[Number(str)];
+        ret = ret + " " + words[Number(str)];
     }
 
     return ret;
 }
-
-//console.log(toReadable(804));
