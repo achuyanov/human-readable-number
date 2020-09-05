@@ -34,9 +34,9 @@ module.exports = function toReadable(num) {
 
     if (words[num]) return words[num];
 
-    const str = String(num);
+    let str = String(num);
 
-    const hundreds = (str.length === 3);
+    let hundreds = (str.length === 3);
 
     if (hundreds) {
         ret = words[str[0]] + " hundred";
